@@ -49,6 +49,7 @@ Standalone skills installed via `~/.claude/skills/` or the built-in marketplace.
 | `prisma-upgrade-v7` | Guide for upgrading to Prisma v7 |
 | `react-expert` | React hooks, state management, performance, React 19, server components, testing |
 | `run-loop` | Run prompts or slash commands on a recurring interval |
+| `solid-principles` | SOLID principles (SRP, OCP, LSP, ISP, DIP) for OO design, refactoring, and code review |
 | `spring-boot-engineer` | Spring Boot with security, data, web, testing, and cloud patterns |
 | `supabase` | Supabase: database, auth, Edge Functions, Realtime, Storage, RLS |
 | `supabase-postgres-best-practices` | PostgreSQL best practices for Supabase projects |
