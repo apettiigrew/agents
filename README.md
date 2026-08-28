@@ -28,6 +28,7 @@ Standalone skills installed via `~/.claude/skills/` or the built-in marketplace.
 |-------|-------------|
 | `api-designer` | REST API design with OpenAPI, pagination, error handling, and versioning patterns |
 | `backend-patterns` | Backend architecture patterns for scalable services |
+| `clean-code` | Clean Code principles (Robert C. Martin) for naming, functions, comments, and refactoring |
 | `database-optimizer` | Query optimization, indexing strategies, PostgreSQL/MySQL tuning |
 | `find-skills` | Discover and install new Claude Code skills |
 | `fine-tuning-expert` | LLM fine-tuning: dataset prep, LoRA/PEFT, hyperparameter tuning, evaluation |
