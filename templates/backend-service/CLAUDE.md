@@ -50,6 +50,7 @@ Where a skill disagrees with `docs/standards/`, the standards win.
 |-------|----------------|
 | `clean-code` | **Always** — before writing, refactoring, or reviewing any `.ts` file (rule 9) |
 | `superpowers:test-driven-development` | Before implementing any feature or fix (rule 4) |
+| `api-designer` | Only when designing a **new** resource model or API surface, or when `docs/standards/api-design.md` is silent on a question. For adding endpoints to existing resources the standards doc is sufficient and authoritative |
 | `nestjs-best-practices` | Only when adding a Nest construct (guard, interceptor, pipe, custom provider) not already present in the codebase. Otherwise this repo's patterns are the standard — don't import outside opinions |
 
 ## For subagents (implementers and reviewers)

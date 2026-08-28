@@ -77,6 +77,14 @@ RFC 7807 `application/problem+json`, produced only by the global exception filte
 - Every controller method has `@ApiOperation`, `@ApiResponse` for each status it can return, and DTOs have `@ApiProperty`. Swagger is generated, not hand-written, and served at `/docs` in non-prod.
 - Breaking change = new version. Additive changes (new optional field, new endpoint) are fine within a version.
 
+## Evolution & deprecation
+
+- Breaking = removing/renaming a field or endpoint, changing a type, tightening validation, changing a status code. Anything else is additive and ships in the current version.
+- Deprecate before removing. A deprecated endpoint or version responds with `Deprecation: true` and `Sunset: <HTTP-date>` headers and a `Link: <migration-doc>; rel="deprecation"` header, and is marked `deprecated: true` in Swagger.
+- Minimum sunset window: 90 days after the replacement is GA, and zero traffic from known clients for 14 days before removal. Log every call to a deprecated route with `deprecatedRoute=true` so the window is measurable.
+- Never run more than two major versions in production. Removing `/v1/` is a tracked ticket, not a side effect of a `/v3/` MR.
+- Field-level deprecation: keep serving the old field alongside the new one for the sunset window; document both in the response DTO with `@ApiProperty({ deprecated: true })`.
+
 ## Checklist for a new endpoint
 
 1. DTOs for request and response, fully decorated.
