@@ -6,6 +6,13 @@ A sample `CLAUDE.md` and `docs/standards/` set for a backend service, written so
 
 - `CLAUDE.md` is loaded automatically by every Claude Code session and subagent working in the repo. It is deliberately short: commands, eight numbered non-negotiable rules, one-line convention summaries, and a docs index. Reviewers are told to cite rule numbers.
 - `docs/standards/*.md` hold the detail. `CLAUDE.md` tells agents *when* to read each one ("Read when: adding an endpoint"), so an implementer only loads the 1–2 docs relevant to its task.
+- Skills referenced in `CLAUDE.md` (`clean-code`, `nestjs-best-practices`, `superpowers:*`) are **not** committed to the service repo. They are installed once per machine and referenced by name. Install from this repo with:
+  ```bash
+  ln -s "$(pwd)/skills/clean-code" ~/.claude/skills/clean-code
+  ln -s "$(pwd)/skills/nestjs-best-practices" ~/.claude/skills/nestjs-best-practices
+  claude plugin install superpowers@claude-plugins-official
+  ```
+  Run `/skills` in a session to confirm they load. A referenced skill that isn't installed is silently unavailable, so `CLAUDE.md` tells agents to report that and fall back to the inline summary.
 - The hard rules are meant to be backed by tooling (eslint, prettier, commitlint, gitleaks, coverage gate). Prose that a linter can enforce should be moved into the linter and deleted from the prose.
 
 ## Using it

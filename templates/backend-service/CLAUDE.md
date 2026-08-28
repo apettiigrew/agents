@@ -28,6 +28,9 @@ Entry point: `src/main.ts`. One module per bounded context under `src/modules/<n
 6. Never log PII (names, emails, phone numbers, street addresses). Postal code, region, country are fine. → [security.md](docs/standards/security.md)
 7. Schema changes go through Prisma migrations — never edit the DB or generated client by hand. → [database.md](docs/standards/database.md)
 8. Follow existing patterns in the module you're touching. Don't restructure outside your task; report concerns instead.
+9. All code follows the `clean-code` skill: intention-revealing names, small single-purpose functions,
+   ≤2 arguments unless justified, no side effects, no commented-out or explanatory-comment-instead-of-refactor code.
+   Invoke the skill **before** writing, refactoring, or reviewing any source file. See [Skills](#skills).
 
 ## Conventions (summary — details in docs/standards/)
 
@@ -36,13 +39,25 @@ Entry point: `src/main.ts`. One module per bounded context under `src/modules/<n
 - Commits: Conventional Commits (`feat(orders): ...`). One logical change per commit. → [git-workflow.md](docs/standards/git-workflow.md)
 - Logging: structured JSON via `Logger`, always include `requestId`. → [observability.md](docs/standards/observability.md)
 
+## Skills
+
+Skills are installed globally on each developer's machine (`~/.claude/skills/`), **not** committed
+to this repo. Invoke them with the Skill tool at the moment stated. If a skill is not available in
+your session, say so in your report and apply the summary in the rule instead — do not skip silently.
+Where a skill disagrees with `docs/standards/`, the standards win.
+
+| Skill | When to invoke |
+|-------|----------------|
+| `clean-code` | **Always** — before writing, refactoring, or reviewing any `.ts` file (rule 9) |
+| `superpowers:test-driven-development` | Before implementing any feature or fix (rule 4) |
+| `nestjs-best-practices` | Only when adding a Nest construct (guard, interceptor, pipe, custom provider) not already present in the codebase. Otherwise this repo's patterns are the standard — don't import outside opinions |
+
 ## For subagents (implementers and reviewers)
 
 - Read this file and the standards doc for your area **before** writing code.
-- Reviewers: check the diff against the numbered rules above and cite the rule number in each finding.
-- Load the `nestjs-best-practices` skill only if the task introduces a Nest construct
-  (guard, interceptor, pipe, custom provider) not already present in the codebase.
-  Otherwise the patterns in this repo are the standard — don't import outside opinions.
+- Implementers: invoke `clean-code` before your first edit, and self-review your diff against it before reporting done.
+- Reviewers: check the diff against the numbered rules above **and** the `clean-code` skill; cite the
+  rule number or the clean-code section (e.g. "clean-code §2 Functions") in each finding.
 
 ## Docs index
 
