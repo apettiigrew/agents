@@ -9,14 +9,28 @@ A personal collection of Claude Code skills and plugins. Everything here is eith
 ```
 agents/
 ├── skills/          # Standalone skills (individual SKILL.md files)
-└── plugins/         # Plugin-packaged skills (grouped by plugin source)
-    ├── superpowers/
-    ├── terraform-provider-development/
-    ├── notion-workspace/
-    ├── frontend-design/
-    ├── tanstack-query/
-    └── claude-code-setup/
+├── plugins/         # Plugin-packaged skills (grouped by plugin source)
+│   ├── superpowers/
+│   ├── terraform-provider-development/
+│   ├── notion-workspace/
+│   ├── frontend-design/
+│   ├── tanstack-query/
+│   └── claude-code-setup/
+└── templates/       # CLAUDE.md + docs/standards/ starter kits to copy into a project
+    ├── backend-service/   # NestJS / Prisma / PostgreSQL service
+    └── frontend-app/      # Next.js App Router / React / TypeScript app
 ```
+
+---
+
+## Templates
+
+Drop-in `CLAUDE.md` + `docs/standards/` sets that make Claude Code (and its subagents) follow a project's conventions. Each has a README explaining how to adopt it and which skills it references.
+
+| Template | Stack | Enforces |
+|----------|-------|----------|
+| [`templates/backend-service`](templates/backend-service) | NestJS, Prisma, PostgreSQL, Jest | Layered modules, `AppException` errors, REST/RFC 7807, safe migrations, PII-free logging, TDD |
+| [`templates/frontend-app`](templates/frontend-app) | Next.js 15 App Router, React 19, TypeScript, Tailwind, TanStack Query, Zustand, Vitest, Playwright | Server-first components, state-placement ladder, typed data fetching, a11y gates, bundle budgets, security headers, TDD |
 
 ---
 
